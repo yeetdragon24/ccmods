@@ -243,7 +243,7 @@ do !->
             if hard
                 Game.Earn 1e6 * not Game.Has-achiev("So long, cookies.")
                 Game.Win "So long, cookies."
-        eval "Game.Win = #{Game.Win.to-string!.replace "if" "if (what == 'So long, cookies.') { Game.Notify('Shadow achievements are not allowed.', 'Your run has been invalidated.', [17, 5]); Object.values(Game.Achievements).filter(x => x.pool == 'shadow').forEach(x => x.won = 0); }; if"}"
+        eval "Game.Win = #{Game.Win.to-string!.replace "if" "if (Game.Achievements[what]?.pool == 'shadow') { Game.Notify('Shadow achievements are not allowed.', 'Your run has been invalidated.', [17, 5]); Object.values(Game.Achievements).filter(x => x.pool == 'shadow').forEach(x => x.won = 0); }; if"}"
         
 
     Game.register-mod 'Joke mod',
