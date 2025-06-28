@@ -237,13 +237,13 @@ do !->
     #"so long, cookies" achievement
     so-long-cookies = !->
         new Game.Achievement "So long, cookies." "The <b>timer<b> has started." [20 7]
-            ..pool = \shadow
+            ..order = 1e5-1
         eval "Game.Ascend = #{Game.Ascend.to-string!.replace "Game.OnAscend=0;" "Game.Earn(1e6 * !Game.HasAchiev('So long, cookies.'));Game.Win('So long, cookies.');Game.OnAscend=0;"}"
         Game.register-hook \reset (hard) ->
             if hard
                 Game.Earn 1e6 * not Game.Has-achiev("So long, cookies.")
                 Game.Win "So long, cookies."
-        eval "Game.Win = #{Game.Win.to-string!.replace "if" "if (Game.Achievements[what]?.pool == 'shadow') { Game.Notify('Shadow achievements are not allowed.', 'Your run has been invalidated.', [17, 5]); Object.values(Game.Achievements).filter(x => x.pool == 'shadow').forEach(x => x.won = 0); return false; }; if"}"
+        eval "Game.Win = #{Game.Win.to-string!.replace "if" "if (Game.Achievements[what]?.pool == 'shadow') { Game.Notify('Shadow achievements are not allowed.', 'Your run has been invalidated.', [17, 5]); }; if"}"
         
 
     Game.register-mod 'Joke mod',
