@@ -35,7 +35,7 @@ M.launch = function() {
                 ageTick: 10,
                 ageTickR: 2,
                 mature: 50,
-                children: ['Reaper of Fields', 'Dragonflight', 'Arcane Aura'],
+                children: ['Radiant Appetite', 'Reaper of Fields', 'Dragonflight', 'Arcane Aura'],
                 effsStr: `<div class="green">&bull; Clicking is <b>2.5%</b> more powerful.</div>`,
                 q: "Clicking is 0.5% more effective"
             },
@@ -133,8 +133,8 @@ M.launch = function() {
                 children: ['Dragon God'],
                 effsStr: `<div class="green">&bull; Golden cookies give <b>10%</b> more cookies.</div>`,
                 q: "Golden cookies give 10% more cookies",
-                onHarvest: function(x, y, age) {
-                    if (Math.random() < 0.01 * age) { console.log(M.plot[y][x]); M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0]; console.log(M.plot[y][x]) }
+                onKill: function(x, y, age) {
+                    if (Math.random() < 0.0025 * age) { M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0]; }
                 }
             },
             "Unholy Dominion": {
@@ -147,9 +147,9 @@ M.launch = function() {
                 children: ['Dragon God', 'Fierce Hoarder'],
                 effsStr: `<div class="green">&bull; Wrath cookies give <b>10%</b> more cookies.</div>`,
                 q: "Wrath cookies give 10% more cookies",
-                onHarvest: function(x, y, age) {
-                    if (Math.random() < 0.01 * age) M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0];
-                    if (Math.random() < 0.01 * age) M.plot[y][x] = [M.plants['Fierce Hoarder'].id + 1, 0];
+                onKill: function(x, y, age) {
+                    if (Math.random() < 0.0025 * age) M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0];
+                    if (Math.random() < 0.0025 * age) M.plot[y][x] = [M.plants['Fierce Hoarder'].id + 1, 0];
                 }
             },
             "Epoch Manipulator": {
@@ -608,8 +608,6 @@ M.launch = function() {
                         var effStr = '';
                         for (var i in M.eff) {
                             if (M.eff[i] != (effs[i]?.default ?? 1)) {
-                                // console.log(effs[i], M.eff[i],effs[i]?.default)
-                                // console.log(M.eff[i] != (effs[i]?.default || 1))
                                 var amount = (M.eff[i] - (effs[i]?.default ?? 1)) * 100;
                                 effStr += `<div style="font-size:10px;margin-left:44px;"><b>&bull; ${effs[i].n}</b> <span class="${((amount * (effs[i].rev ? -1 : 1)) > 0 ? 'green' : 'red')}">${effs[i].mult ? 'x' : (amount > 0 ? '+' : '-')}${Beautify(Math.abs(M.eff[i] - (effs[i].default ?? 1) + (effs[i].mult || effs[i].num ? 1 : 0)) * (effs[i].mult || effs[i].num ? 1 : 100), 2)}${effs[i].mult || effs[i].num ? '' : '%'}</span></div>`;
                             }
