@@ -134,7 +134,7 @@ M.launch = function() {
                 effsStr: `<div class="green">&bull; Golden cookies give <b>10%</b> more cookies.</div>`,
                 q: "Golden cookies give 10% more cookies",
                 onKill: function(x, y, age) {
-                    if (Math.random() < 0.0025 * age) { M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0]; }
+                    if (Math.random() < 0.0025 * age) M.plot[y][x] = [M.plants['Dragon God'].id + 1, 0];
                 }
             },
             "Unholy Dominion": {
@@ -181,7 +181,7 @@ M.launch = function() {
                 ageTick: 3,
                 ageTickR: 1,
                 mature: 67,
-                children: ['Reaper of Fields', 'Dragonflight', 'Epoch Manipulator'],
+                children: ['Reaper of Fields', 'Dragonflight', 'Epoch Manipulator', 'Elder Battalion'],
                 effsStr: `<div class="green">&bull; All cookie production <b>+10%</b>.</div>`,
                 q: "All cookie production +10%"
             },
@@ -299,20 +299,20 @@ M.launch = function() {
             //note: neighs stands for neighbors, not horsey noises
             var muts = []; //['plant', chance], ie ['bakeberry', 0.001]
 
-            if (neighsM['Dragon Cursor'] >= 2) muts.push(['Radiant Appetite', 0.05]);
+            if (neighsM['Dragon Cursor'] >= 2) muts.push(['Radiant Appetite', 0.1]);
 
-            if (neighsM['Dragon Cursor'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Dragonflight', 0.025], ['Reaper of Fields', 0.025]);
-            if ((neighsM['Reaper of Fields'] >= 1 || neighsM['Dragonflight'] >= 1) && neighsM['Epoch Manipulator'] >= 1) muts.push(['Dragon Orbs', 0.01]);
-            if (neighsM['Dragon Cursor'] >= 1 && neighsM['Dragon God'] >= 1) muts.push(['Arcane Aura', 0.02]);
-            if (neighsM['Arcane Aura'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Epoch Manipulator', 0.02]);
+            if (neighsM['Dragon Cursor'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Dragonflight', 0.05], ['Reaper of Fields', 0.05]);
+            if ((neighsM['Reaper of Fields'] >= 1 || neighsM['Dragonflight'] >= 1) && neighsM['Epoch Manipulator'] >= 1) muts.push(['Dragon Orbs', 0.02]);
+            if (neighsM['Dragon Cursor'] >= 1 && neighsM['Dragon God'] >= 1) muts.push(['Arcane Aura', 0.03]);
+            if (neighsM['Arcane Aura'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Epoch Manipulator', 0.03]);
 
-            if (neighsM['Dragon God'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Breath of Milk', 0.005], ['Elder Battalion', 0.01]);
-            if (neighsM['Dragon God'] >= 1 && neighsM['Fierce Hoarder'] >= 1) muts.push(['Mind Over Matter']);
+            if (neighsM['Dragon God'] >= 1 && neighsM['Radiant Appetite'] >= 1) muts.push(['Breath of Milk', 0.005], ['Elder Battalion', 0.02]);
+            if (neighsM['Dragon God'] >= 1 && neighsM['Fierce Hoarder'] >= 1) muts.push(['Mind Over Matter', 0.03]);
             if (neighsM['Fierce Hoarder'] >= 1) muts.push(['Master of the Armory', 0.15]);
             if (neighsM['Master of the Armory'] >= 1) muts.push(['Fierce Hoarder', 0.15]);
-            if (neighsM['Fierce Hoarder'] >= 1 && neighsM['Master of the Armory'] >= 1) muts.push(['Earth Shatterer', 0.025]);
+            if (neighsM['Fierce Hoarder'] >= 1 && neighsM['Master of the Armory'] >= 1) muts.push(['Earth Shatterer', 0.04]);
 
-            if (neighsM['Elder Battalion'] >= 1 && neighsM['Supreme Intellect'] >= 1) muts, push(['Dragon Guts', 0.05]);
+            if (neighsM['Elder Battalion'] >= 1 && neighsM['Supreme Intellect'] >= 1) muts, push(['Dragon Guts', 0.02]);
             if (neighsM['Mind Over Matter'] >= 1 && neighsM['Earth Shatterer'] >= 1) muts.push(['Dragon\'s Curve', 0.025]);
 
             let lAura = ['Reaper of Fields', 'Dragonflight', 'Master of the Armory', 'Ancestral Metamorphosis'];
