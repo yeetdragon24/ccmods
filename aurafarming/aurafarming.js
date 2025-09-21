@@ -171,8 +171,8 @@ M.launch = function() {
                 children: ['Dragon\'s Curve', 'Supreme Intellect'],
                 effsStr: `<div class="green">&bull; Random drops are <b>2.5% more common</b>.</div>`,
                 q: "+2.5% random drops",
-                onHarvest: function(x, y, age) {
-                    if (Math.random() < 0.01 * age) M.plot[y][x] = [M.plants['Supreme Intellect'].id + 1, 0];
+                onKill: function(x, y, age) {
+                    if (Math.random() < 0.005 * age) M.plot[y][x] = [M.plants['Supreme Intellect'].id + 1, 0];
                 }
             },
             "Radiant Appetite": {
@@ -757,7 +757,7 @@ M.launch = function() {
                 '</div>';
         }
         M.canPlant = function(me) {
-            if (me.name == 'Breath of Milk' && Game.cookies >= M.getCost(me)) return true;
+            if (me.name == 'Breath of Milk') return Game.cookies >= M.getCost(me);
             return Game.ObjectsById[me.id - 1].amount >= M.getCost(me);
         }
 
