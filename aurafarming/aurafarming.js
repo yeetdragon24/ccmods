@@ -312,7 +312,7 @@ M.launch = function() {
             if (neighsM['Master of the Armory'] >= 1) muts.push(['Fierce Hoarder', 0.15]);
             if (neighsM['Fierce Hoarder'] >= 1 && neighsM['Master of the Armory'] >= 1) muts.push(['Earth Shatterer', 0.04]);
 
-            if (neighsM['Elder Battalion'] >= 1 && neighsM['Supreme Intellect'] >= 1) muts, push(['Dragon Guts', 0.02]);
+            if (neighsM['Elder Battalion'] >= 1 && neighsM['Supreme Intellect'] >= 1) muts.push(['Dragon Guts', 0.02]);
             if (neighsM['Mind Over Matter'] >= 1 && neighsM['Earth Shatterer'] >= 1) muts.push(['Dragon\'s Curve', 0.025]);
 
             let lAura = ['Reaper of Fields', 'Dragonflight', 'Master of the Armory', 'Ancestral Metamorphosis'];
