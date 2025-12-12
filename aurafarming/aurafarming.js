@@ -87,7 +87,7 @@ M.launch = function() {
                 ageTick: 5,
                 ageTickR: 25,
                 mature: 30,
-                children: ['Master of the Armory', 'Mind Over Matter'],
+                children: ['Master of the Armory', 'Earth Shatterer', 'Mind Over Matter'],
                 effsStr: `<div class="green">&bull; All buildings are <b>0.2% cheaper</b>.</div>`,
                 q: "All buildings are 0.2% cheaper"
             },
