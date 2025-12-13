@@ -55,7 +55,7 @@ M.launch = function() {
                 ageTick: 15,
                 ageTickR: 5,
                 mature: 75,
-                children: ['Dragon Orbs'],
+                children: ['Dragon Orbs', 'Reality Bending'],
                 effsStr: `<div class="green">&bull; Golden cookies may trigger a <b>Reaper of Fields</b>.</div>`,
                 q: "Golden cookies may trigger a Reaper of Fields"
             },
@@ -76,7 +76,7 @@ M.launch = function() {
                 ageTick: 5,
                 ageTickR: 25,
                 mature: 30,
-                children: ['Fierce Hoarder', 'Earth Shatterer'],
+                children: ['Fierce Hoarder', 'Earth Shatterer', 'Reality Bending'],
                 effsStr: `<div class="green">&bull; All upgrades are <b>0.2% cheaper</b>.</div>`,
                 q: "All upgrades are 0.2% cheaper"
             },
@@ -98,7 +98,7 @@ M.launch = function() {
                 ageTick: 2,
                 ageTickR: 12,
                 mature: 40,
-                children: ['Arcane Aura', 'Elder Battalion', 'Mind Over Matter'],
+                children: ['Arcane Aura', 'Breath of Milk', 'Elder Battalion', 'Mind Over Matter'],
                 effsStr: `<div class="green">&bull; <b>+5%</b> prestige level effect on CpS.</div>`,
                 q: "Prestige CpS bonus +5%"
             },
@@ -119,7 +119,7 @@ M.launch = function() {
                 ageTick: 15,
                 ageTickR: 5,
                 mature: 75,
-                children: ['Dragon Orbs'],
+                children: ['Dragon Orbs', 'Reality Bending'],
                 effsStr: `<div class="green">&bull; Golden cookies may trigger a <b>Dragonflight</b>.</div>`,
                 q: "Golden cookies may trigger a Dragonflight"
             },
@@ -130,7 +130,7 @@ M.launch = function() {
                 ageTick: 10,
                 ageTickR: 6,
                 mature: 50,
-                children: ['Dragon God'],
+                children: ['Dragon God', 'Reality Bending'],
                 effsStr: `<div class="green">&bull; Golden cookies give <b>10%</b> more cookies.</div>`,
                 q: "Golden cookies give 10% more cookies",
                 onKill: function(x, y, age) {
@@ -181,7 +181,7 @@ M.launch = function() {
                 ageTick: 3,
                 ageTickR: 1,
                 mature: 67,
-                children: ['Reaper of Fields', 'Dragonflight', 'Epoch Manipulator', 'Elder Battalion'],
+                children: ['Reaper of Fields', 'Dragonflight', 'Epoch Manipulator', 'Breath of Milk', 'Elder Battalion'],
                 effsStr: `<div class="green">&bull; All cookie production <b>+10%</b>.</div>`,
                 q: "All cookie production +10%"
             },
@@ -221,7 +221,7 @@ M.launch = function() {
                 ageTick: 3,
                 ageTickR: 1,
                 mature: 30,
-                children: [],
+                children: ['Dragon\'s Fortune'],
                 effsStr: `<div class="green">&bull; With no buffs and no golden cookies on screen, selling your most powerful building has <b>1% chance to summon a golden cookie</b>.</div>`,
                 q: "Selling your best building may grant a wish"
             },
@@ -231,7 +231,7 @@ M.launch = function() {
                 ageTick: 5,
                 ageTickR: 10,
                 mature: 35,
-                children: [],
+                children: ['Dragon Guts'],
                 effsStr: `<div class="green">&bull; Confers various powers to your minigames while active.<br>See the bottom of each minigame for more details.</div>`,
                 q: "Confers various powers to your minigames"
             },
@@ -241,7 +241,7 @@ M.launch = function() {
                 ageTick: 0.1,
                 ageTickR: 0.5,
                 mature: 45,
-                children: [],
+                children: ['Dragon\'s Fortune'],
                 effsStr: `<div class="green">&bull; You can attract <b>0.2 more wrinklers</b>.<br>&bull; Wrinklers digest <b>2% more cookies</b>.<br>&bull; Wrinklers explode into <b>2% more cookies</b>.</div>`,
                 q: "Enhanced wrinklers"
             }
@@ -316,7 +316,7 @@ M.launch = function() {
             if (neighsM['Mind Over Matter'] >= 1 && neighsM['Earth Shatterer'] >= 1) muts.push(['Dragon\'s Curve', 0.025]);
 
             let lAura = ['Reaper of Fields', 'Dragonflight', 'Master of the Armory', 'Ancestral Metamorphosis'];
-            if (lAura.every(plant => neighs[plant])) muts.push(['Reality Bending', 0.08]);
+            if (lAura.every(plant => neighsM[plant])) muts.push(['Reality Bending', 0.08]);
 
             if (neighsM['Dragon Orbs'] >= 1 && neighsM['Dragon Guts'] >= 1 && neighsM['Earth Shatterer'] >= 1) muts.push(['Dragon\'s Fortune', 0.01]);
 
